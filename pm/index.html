@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yonathan Goldschmidt · Product Manager, 0→1</title>
+<meta name="description" content="Founder of Beedy, a marketplace where US homeowners put construction work out to bid and pay for it step by step. I decide what to build, design it, and ship it with AI coding agents. Three case studies.">
+<meta name="theme-color" content="#172d44">
+<link rel="canonical" href="https://yonathanegr-cmyk.github.io/portfolio/pm/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yonathanegr-cmyk.github.io/portfolio/pm/">
+<meta property="og:title" content="Yonathan Goldschmidt · Product Manager, 0→1">
+<meta property="og:description" content="Founder of Beedy. I decide what to build, design it, and ship it with AI coding agents. Three case studies.">
+<meta property="og:image" content="https://yonathanegr-cmyk.github.io/portfolio/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<!-- Entrée Product Manager. Les trois études sont celles de ../index.html, dans un autre ordre :
+     une correction de fond s'applique aux deux fichiers. -->
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Founder and Product Manager · Herzliya, Israel</p>
+    <h1>Yonathan Goldschmidt</h1>
+    <p class="lead">I am the founder of Beedy. I decide what to build, I design it, and I ship it with AI coding agents.</p>
+    <p class="proof">Beedy lets US homeowners and contractors put construction work out to bid and pay for it step by step. It has been live in Florida since September 2026.</p>
+    <ul class="cta">
+      <li><a class="btn primary" href="#work">See the case studies</a></li>
+      <li><a class="btn" href="https://beedy.app">beedy.app</a></li>
+      <li><a class="btn" href="https://www.youtube.com/playlist?list=PLJ3RMMdpBX48">8 demo videos</a></li>
+      <li><a class="btn" href="Yonathan-Goldschmidt-CV-Product-Manager.pdf">CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <nav class="toc wrap" id="work" aria-label="Case studies">
+    <p class="kicker">Selected work</p>
+    <ol>
+      <li><a href="#steps"><b>01</b><strong>Paying step by step, on evidence</strong><span>One step funded ahead, approved on photos</span></a></li>
+      <li><a href="#request"><b>02</b><strong>A request a contractor can price</strong><span>From a 5-step wizard to a guided conversation</span></a></li>
+      <li><a href="#compare"><b>03</b><strong>Comparing offers on the same rows</strong><span>The total the client will pay, before they choose</span></a></li>
+      <li><a href="#agents"><b>04</b><strong>How I ship with AI agents</strong><span>Specs, pull requests and the checks that guard them</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- 01 -->
+  <article class="case" id="steps">
+    <div class="wrap">
+      <p class="kicker">Case study 01 · Staged payment and step approval · Jun to Nov 2026</p>
+      <h2>Paying step by step, on evidence</h2>
+      <p class="summary">The product said "Pay step by step", but checkout charged the whole job up front. Now the client funds one step ahead and approves each step on a checklist with photos, and the company is paid at each approval. Live since November 2026.</p>
+      <dl class="facts">
+        <div><dt>My role</dt><dd>Founder. Product calls and design, terms reviewed with a Florida lawyer.</dd></div>
+        <div><dt>Scope</dt><dd>Checkout, step approval, payouts, lateness and penalties.</dd></div>
+        <div><dt>Status</dt><dd>Live. Last flags opened on November 18 to 20, 2026.</dd></div>
+      </dl>
+
+      <figure class="shot">
+        <a href="../img/03-step.jpg"><picture><source media="(max-width: 47.99rem)" srcset="../img/03-step-m.jpg" width="810" height="1280"><img src="../img/03-step.jpg" width="1600" height="1000" loading="lazy" alt="An approved work step: its scope, a checklist, and one photo for each checklist point."></picture></a>
+        <figcaption>An approved step, seen by the homeowner. Demo environment, sample data.</figcaption>
+      </figure>
+
+      <div class="body">
+        <h3>The problem</h3>
+        <ul>
+          <li>The product said "Pay step by step", but checkout charged the whole job up front.</li>
+          <li>"It's done" did not tell the client whether it was done well.</li>
+          <li>A late or cancelled job cost the company nothing, and damage was settled with a free-text amount.</li>
+        </ul>
+
+        <h3>Constraints</h3>
+        <ul>
+          <li>The card is saved at checkout and charged again for each step. Card fees repeat with every charge, so step payment applies only above a minimum job amount.</li>
+          <li>Under Florida law a late penalty must be a reasonable estimate of the harm. The schedule is modest and capped: one free day, then 2% a day, up to 10%.</li>
+          <li>A step can start only when the previous one is approved and the next one is funded.</li>
+        </ul>
+
+        <h3>How it evolved</h3>
+        <ol class="steps">
+          <li><time>June 2026</time>Companies propose work steps in their offer. The first step starts on its own when work starts, on the server.</li>
+          <li><time>October 2026</time>The real change. Checkout charges the diagnostic and step 1, and each approval funds the next step. The design went through a counter-review that raised 14 objections, then a second pass, and shipped in six pull requests.</li>
+          <li><time>October to November 2026</time>First rule: approving a step moves no money, and everything is paid out 14 days after the last step. I reversed it in November: each work step is paid out when it is approved, and only the final holdback waits 14 days. It opened in production once the terms were updated.</li>
+          <li><time>November 2026</time>A penalty schedule per step, for lateness and cancellation.</li>
+          <li><time>November 2026</time>Step verification: a checklist per step with one photo per point, an optional AI review of the photos against the step's requirements (both sides must consent), a frozen PDF report for both sides, and a rework path when the client has reservations. A run on the demo environment found five defects, fixed before opening.</li>
+          <li><time>November 2026</time>Lateness, second version. The old clock started when the company clicked "start", so a company that waited three weeks between steps was never late. The clock now starts when the step is ready. A company can ask for up to 3 more days once per step, and 48 hours of client silence counts as yes. The client can waive the penalty when approving.</li>
+        </ol>
+
+        <h3>What I ruled out</h3>
+        <ul class="out">
+          <li><strong>One payout 14 days after the last step.</strong> Replaced by a payout at each approval.</li>
+          <li><strong>Starting the first step from the browser.</strong> It could race with the server and cost a second round trip.</li>
+          <li><strong>Bank transfers and wallets in the first version.</strong> Cards only, one automatic charge attempt per step.</li>
+        </ul>
+
+        <h3>Outcome</h3>
+        <p>Live in production. Each approved step produces a PDF report sent to both parties, and a company never starts a step that is not funded. Too new for usage figures.</p>
+
+        <h3>What I learned</h3>
+        <p>Check what starts the clock. The first lateness rule counted from the company's own click on "start", so a company that waited three weeks between steps was never late. The clock now starts when the step is ready.</p>
+
+        <p class="video"><a href="https://youtu.be/-7ao24kmiCw">Watch a contractor pay subs step by step, 85&nbsp;s</a></p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 02 -->
+  <article class="case" id="request">
+    <div class="wrap">
+      <p class="kicker">Case study 02 · Homeowner request · Jun to Nov 2026</p>
+      <h2>A request a contractor can price</h2>
+      <p class="summary">The first request form was a five-step wizard, and contractors often received "New service request" as the only description. I replaced it with a short guided conversation that ends in a project file a company can price. Live in production.</p>
+      <dl class="facts">
+        <div><dt>My role</dt><dd>Founder. Every product call and the design. AI agents wrote the code.</dd></div>
+        <div><dt>Scope</dt><dd>Request flow, project file, confirmation page. 8 languages.</dd></div>
+        <div><dt>Status</dt><dd>Live. 166 commits on this flow since August 2026.</dd></div>
+      </dl>
+
+      <figure class="shot">
+        <a href="../img/01-request.jpg"><picture><source media="(max-width: 47.99rem)" srcset="../img/01-request-m.jpg" width="1000" height="1080"><img src="../img/01-request.jpg" width="1600" height="1000" loading="lazy" alt="Request page: project name, trade, location and a free description on the left, plans and photos on the right."></picture></a>
+        <figcaption>The request page. Demo environment, sample data.</figcaption>
+      </figure>
+
+      <div class="body">
+        <h3>The problem</h3>
+        <p>The first version was a five-step wizard, and it failed in ways I could list:</p>
+        <ul>
+          <li>"Step 1 of 5" became 7 or 8 steps once the AI questions arrived, so the progress bar went backwards.</li>
+          <li>A photo and a successful AI analysis were both required. When the AI provider was down, nobody could send a request.</li>
+          <li>Signing up by email at the end lost the whole request: the confirmation link opened in another tab.</li>
+          <li>Contractors often received "New service request" as the only description.</li>
+        </ul>
+
+        <h3>Constraints</h3>
+        <ul>
+          <li>The client stays anonymous until they publish. A company sees the address only after the client accepts its offer.</li>
+          <li>AI calls are rate-limited per visitor, and one conversation makes many calls.</li>
+          <li>Answers come back as structured data, not streamed text, so the wait needs its own design.</li>
+          <li>Every string ships in 8 languages (11 regional variants), including Hebrew and Arabic.</li>
+        </ul>
+
+        <h3>How it evolved</h3>
+        <ol class="steps">
+          <li><time>June 2026</time>I blocked "Continue" until the AI photo analysis succeeded. Requests stopped arriving half empty, but the AI became a single point of failure.</li>
+          <li><time>August 2026</time>Agents mapped the old wizard end to end and listed ten open questions for me. I answered them, then validated a new design on an interactive prototype: a short scripted conversation in six phases, with the AI used only for the follow-up questions. Photos strongly encouraged, never required. A local draft, so a refresh loses nothing. A 6-digit code inside the thread instead of an email link.</li>
+          <li><time>August to September 2026</time>"Extend my house" used to mean five unrelated requests. A request that spans several trades now opens a project, with one part per trade.</li>
+          <li><time>September 2026</time>The confirmation page was 3,536&nbsp;px tall on a phone: 4.4 screens, 679&nbsp;px of it repeated. I cut it to a receipt, one summary card and three collapsed sections.</li>
+          <li><time>September 2026</time>An audit of the full flow returned 57 findings. Nine changes I asked for shipped as ten pull requests over two days.</li>
+          <li><time>October 2026</time>A second audit, this time with real AI calls. A turn that asked nothing still cost 8,333 input tokens, and publishing took 8.7&nbsp;s with AI against 49&nbsp;ms without. The customer-facing fixes shipped the next day.</li>
+        </ol>
+
+        <h3>What I ruled out</h3>
+        <ul class="out">
+          <li><strong>Blocking on photos and AI analysis.</strong> My own June decision, reversed in August: a request should never depend on a third-party model being up.</li>
+          <li><strong>A price estimate on large projects.</strong> A number produced by a model becomes a promise, then a dispute.</li>
+          <li><strong>The confirmation email link.</strong> Replaced by a code typed in the same screen.</li>
+          <li><strong>Publishing every part of a project at once.</strong> Each part goes out on its own, when the client is ready.</li>
+        </ul>
+
+        <h3>Outcome</h3>
+        <p>Live in production. A request now ends with a project file: the client's words, their answers, the suggested work steps and their plans. It is what companies read before they price, and the address stays hidden until the client chooses.</p>
+
+        <h3>What I learned</h3>
+        <p>A required step must not depend on a third party. In June I made the AI photo analysis mandatory, and when the AI provider was down nobody could send a request. I reversed it in August.</p>
+
+        <p class="video"><a href="https://youtu.be/icHGkOKjvtI">Watch the homeowner flow, 60&nbsp;s</a></p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 03 -->
+  <article class="case" id="compare">
+    <div class="wrap">
+      <p class="kicker">Case study 03 · Offer comparison · Jun to Nov 2026</p>
+      <h2>Comparing offers on the same rows</h2>
+      <p class="summary">Offer cards showed the company's price, and fees came later, at checkout. I added a comparison: up to three offers on the same rows, with the total the client will actually pay. Live since October 2026.</p>
+      <dl class="facts">
+        <div><dt>My role</dt><dd>Founder. Product calls and design. Mockup reviewed before any code.</dd></div>
+        <div><dt>Scope</dt><dd>Offer list, comparison table, fees shown to the client.</dd></div>
+        <div><dt>Status</dt><dd>Live since October 2026, four fixes after launch.</dd></div>
+      </dl>
+
+      <figure class="shot pan">
+        <a href="../img/02-compare.jpg"><picture><source media="(max-width: 47.99rem)" srcset="../img/02-compare-m.jpg" width="1720" height="1300"><img src="../img/02-compare.jpg" width="1600" height="1000" loading="lazy" alt="Comparison table of three offers: service amount, Beedy fee, match fee, total with fees and taxes, availability, duration, reviews, distance and what the quote includes."></picture></a>
+        <figcaption><span class="m-only">Swipe sideways to see the three offers. </span>The comparison, opened from the offer list. Demo environment, sample data.</figcaption>
+      </figure>
+
+      <div class="body">
+        <h3>The problem</h3>
+        <p>Offers arrived as a list of cards, and the cards gave weak or wrong signals:</p>
+        <ul>
+          <li>A company that sent several offers showed up as several cards.</li>
+          <li>A "Best value" pill appeared on every card when prices tied.</li>
+          <li>"Fastest" and "Cheapest" badges showed hard-coded values, even with no offers at all.</li>
+          <li>The price on a card was the company's price. Fees came later, at checkout.</li>
+        </ul>
+
+        <h3>Constraints</h3>
+        <ul>
+          <li>Every total comes from the server. The screen never computes its own amount.</li>
+          <li>Fees depend on how the company was found: one that Beedy matched carries a match fee, one the client brought does not.</li>
+          <li>Prices are compared only when the offers use the same currency.</li>
+          <li>It has to work on a 376&nbsp;px phone and in right-to-left languages.</li>
+        </ul>
+
+        <h3>How it evolved</h3>
+        <ol class="steps">
+          <li><time>June 2026</time>One card per company, with tabs for its offers. I removed the "Best value" pill.</li>
+          <li><time>August 2026</time>Removed the fake "Fastest" and "Cheapest" values.</li>
+          <li><time>October 2026</time>I asked to see mockups before any integration. The comparison was specified as fixed rows: total, service, fees, taxes, schedule, duration, reviews, distance, what is included and what to clarify. Validated and built the same day.</li>
+          <li><time>October 2026</time>A parity review against the mockup found the built table showing service prices only. Fixed to the full server totals the same day.</li>
+          <li><time>October 2026</time>New companies showed "(0)" completed jobs, a zero the data did not support. The count now appears only from one job up.</li>
+          <li><time>November 2026</time>Added the match-fee row when the fee model changed, and hid the tax row when no quote carries tax.</li>
+        </ol>
+
+        <h3>Trade-off on mobile</h3>
+        <p>On a phone the table keeps its columns and scrolls sideways inside its own window, 342&nbsp;px wide on a 376&nbsp;px screen. It does not turn back into stacked cards.</p>
+
+        <h3>What I ruled out</h3>
+        <ul class="out">
+          <li><strong>Badges that rank offers for the client</strong> ("Best value", "Cheapest", "Fastest"). They were wrong on ties and when data was missing.</li>
+        </ul>
+
+        <h3>Outcome</h3>
+        <p>Live since October 2026. The client shortlists two or three offers, reads them on the same rows with fees included, then books. 92 tests across 16 files cover the offer list, map, comparison and offer detail.</p>
+
+        <h3>What I learned</h3>
+        <p>Show only what the data supports. The ranking badges were wrong on ties and when data was missing, and "(0)" completed jobs was a zero the data did not support. Both are gone.</p>
+
+        <p class="video"><a href="https://youtu.be/icHGkOKjvtI">Watch a homeowner compare offers, 60&nbsp;s</a></p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 04 -->
+  <section class="section alt" id="agents">
+    <div class="wrap">
+      <p class="kicker">04 · Process</p>
+      <h2>How I ship with AI agents</h2>
+      <div class="body">
+        <p>Beedy has no engineering team. I write the brief, AI coding agents (Claude Code, Codex) write the code as pull requests, and nothing reaches production unless the checks pass.</p>
+        <ul>
+          <li><strong>2,917 merged pull requests</strong> in 2026. The main branch is protected: type checks, lint, more than 13,000 unit tests and integration tests on a real PostgreSQL database run on every one.</li>
+          <li><strong>17 custom checks.</strong> When a mistake compiles and passes the tests, I turn it into a rule that fails the build. One stops the AI-written project summary from being saved before the client's address is stripped out. Another stops a paid payment from leaving the "paid" state outside three approved refund paths.</li>
+          <li><strong>The design system is tested too.</strong> A test fails if a color copied by hand drifts from its token, and another flags a CSS class used in the markup that has no style behind it.</li>
+          <li><strong>Reviews by separate agents.</strong> On the request flow audit, every finding was re-checked by another agent before anything was fixed. The verifier lowered 25 of 57 severities.</li>
+          <li><strong>Real screens.</strong> The 8 demo videos are recorded from the product itself, not from mockups.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="before">
+    <div class="wrap">
+      <p class="kicker">Before Beedy</p>
+      <h2>A trading platform, and sales before it</h2>
+      <div class="body">
+        <p>Freelance UX designer at FundingRock (December 2024 to October 2026): a UX audit of a trading platform, then its build plan, from information architecture to Figma prototypes and developer handoff.</p>
+        <p>Before that, sales in Israel and France, including managing a team of three coaches at a gym in Paris. Google UX Design Professional Certificate, 2023.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <ul>
+      <li><a href="mailto:yonathan.egr@gmail.com">yonathan.egr@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/yonathan-g-806021127">LinkedIn</a></li>
+      <li><a href="https://beedy.app">beedy.app</a></li>
+      <li><a href="Yonathan-Goldschmidt-CV-Product-Manager.pdf">CV (PDF)</a></li>
+    </ul>
+    <p>French (native), Hebrew (bilingual). Screens captured on Beedy's demo environment, with sample data.</p>
+  </div>
+</footer>
+
+</body>
+</html>
