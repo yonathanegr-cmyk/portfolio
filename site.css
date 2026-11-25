@@ -72,7 +72,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .btn.primary { background: var(--navy); color: #fff; }
 .btn:hover { background: var(--navy); color: #fff; }
-.meta { margin: 1.25rem 0 0; font-size: 0.92rem; color: var(--muted); }
 
 /* Sommaire */
 .toc { padding-top: 2.5rem; padding-bottom: 1rem; }
